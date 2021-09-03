@@ -3,19 +3,27 @@
 
 <head>
     <title>GIFOS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/home.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <h1>Inspírate, busca, guarda y crea los mejores GIFOS</h1>
-    <form>
-        <label for="search">Search</label>
-        <input id="search" type="search">
-        <button id="btnSearch" type="button">Go</button>
-    </form>
-
-    <script type="module" src="main.js"></script>
+    <header>
+        <img src="assets/logo-desktop.svg">
+        <button class="header-option">Modo nocturno</button>
+        <a class="header-option">Favoritos</a>
+        <a class="header-option">Mis gifos</a>
+        <img src="assets/button-crear-gifo.svg">
+    </header>
+    <div id="root"></div>
+    <footer>
+        <p>Compartir en:</p>
+        <img src="assets/icon_facebook.svg">
+        <img src="assets/icon-twitter.svg">
+        <img src="assets/icon_instagram.svg">
+        <p>©️ GIFOS 2020 All Rights Reserved</p>
+    </footer>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
