@@ -1,5 +1,5 @@
-//Renderizar la data
-export function appendData(data, container) {
+//Renderizar tarjetas de gifs buscados 
+function appendSearchData(data, container) {
     let content = ''
     for (let i = 0; i < data.length; i++) {
         content += `
@@ -12,15 +12,15 @@ export function appendData(data, container) {
 }
 
 //Acceder a la data buscada
-export function getData() {
+export function getSearchData() {
     let apiKey = 'fWThAF0VpzbGsNMM8hag7y8u9OJjig7y';
     let input = document.querySelector('#search').value.trim()
-    let container = document.querySelector('#gifs-container')
+    let container = document.querySelector('#search-container')
     let searchUrl = `https://api.giphy.com/v1/gifs/search?q=${input}&api_key=${apiKey}&limit=3&offset=3`
 
     fetch(searchUrl)
         .then(response => response.json())
         .then(content =>
-            appendData(content.data, container)
+            appendSearchData(content.data, container)
         )
 }

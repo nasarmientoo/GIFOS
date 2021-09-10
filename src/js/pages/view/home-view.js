@@ -1,4 +1,5 @@
-import { getData } from "../model/home-model.js";
+import { getTrendData } from "../../sections/trending-view.js";
+import { getSearchData } from "../model/home-model.js";
 
 //Plantilla HTML página inicial Home
 export const renderHome = () => {
@@ -9,7 +10,12 @@ export const renderHome = () => {
         <label for="search">Busca GIFOS y más</label>
         <input id="search" type="search">
         <button id="btnSearch" type="button">Go</button>
-        <div id="gifs-container"></div>
+        <div id="search-container"></div>
+        <div>
+            <h2>Trending GIFOS</h2>
+            <p>Mira los últimos GIFO de nuestra comunidad</p>
+            <div class="trend-container"></div>
+        </div>
     </form>`
     const homeContainer = document.createElement('div');
     homeContainer.innerHTML = html
@@ -18,6 +24,6 @@ export const renderHome = () => {
 }
 
 export function afterRenderHome() {
-    document.getElementById('btnSearch').addEventListener('click', getData)
-
+    getTrendData()
+    document.getElementById('btnSearch').addEventListener('click', getSearchData)
 }
