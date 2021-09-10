@@ -1,4 +1,4 @@
-import { renderHome, afterRenderHome } from "./pages/home.js";
+import { renderHome, afterRenderHome } from "./pages/view/home-view.js";
 
 const container = document.getElementById('root');
 
