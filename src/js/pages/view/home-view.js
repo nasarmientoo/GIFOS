@@ -1,4 +1,4 @@
-import { getTrendData } from "../../sections/trending-view.js";
+import { getTrendData } from "../../sections/trending-model.js";
 import { getSearchData } from "../model/home-model.js";
 
 //Plantilla HTML página inicial Home
@@ -11,11 +11,11 @@ export const renderHome = () => {
         <input id="search" type="search">
         <button id="btnSearch" type="button">Go</button>
         <div id="search-container"></div>
-        <div>
+        <section>
             <h2>Trending GIFOS</h2>
             <p>Mira los últimos GIFO de nuestra comunidad</p>
             <div class="trend-container"></div>
-        </div>
+        </section>
     </form>`
     const homeContainer = document.createElement('div');
     homeContainer.innerHTML = html
