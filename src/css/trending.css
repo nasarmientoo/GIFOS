@@ -1,0 +1,43 @@
+.trending-container {
+    background: #f4f5f9;
+    margin: 40px;
+    padding-left: 80px;
+    width: 900px
+}
+
+.carousel-container {
+    width: 790px;
+    position: relative
+}
+
+img[id^="slide"] {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#slide-left {
+    left: -60px
+}
+
+#slide-rigth {
+    right: -60px;
+}
+
+.card-container {
+    overflow: hidden;
+    display: flex;
+}
+
+.card {
+    flex-shrink: 0;
+    padding-right: 15px;
+}
+
+.images {
+    float: left;
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+}

@@ -2,9 +2,9 @@
 function appendData(input) {
     let container = document.querySelector('#search-container')
     let content = ` 
-                <div class"gifs-container">
+                <div class"searched-container gifs">
                     <h1 class="title">${input}</h1>
-                    <div id="section-cards"></div>
+                    <div id="search-cards"></div>
                     <img id="show-more" src="assets/CTA-ver-mas.svg" type="button" onclick="loadMore()">
                 </div>`
     container.innerHTML = content
@@ -12,10 +12,10 @@ function appendData(input) {
 
 //Agregar toda la data de la API a la sección creada en Append Data
 window.loadData = (data) => {
-    let cardSection = document.getElementById('section-cards')
+    let cardSection = document.getElementById('search-cards')
     let content = ''
     for (let i = 0; i < data.length; i++) {
-        content += `<img class="gifs-images hidden"src="${data[i].images.downsized.url}">`
+        content += `<img class="search-gifs-images hidden" src="${data[i].images.downsized.url}">`
     }
     cardSection.innerHTML = content
 }
@@ -23,7 +23,7 @@ window.loadData = (data) => {
 //Funcionalidad botón 'ver más'
 window.loadMore = () => {
     let showMoreButton = document.getElementById('show-more')
-    let list = [...document.querySelectorAll('.gifs-images.hidden')]
+    let list = [...document.querySelectorAll('.search-gifs-images.hidden')]
 
     list.splice(0, 3).forEach(
         elem => elem.classList.remove('hidden')

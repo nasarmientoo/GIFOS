@@ -11,11 +11,7 @@ export const renderHome = () => {
         <input id="search" type="search">
         <button id="btnSearch" type="button">Go</button>
         <div id="search-container"></div>
-        <section>
-            <h2>Trending GIFOS</h2>
-            <p>Mira los últimos GIFO de nuestra comunidad</p>
-            <div class="trend-container"></div>
-        </section>
+        <section id="trend-section"></section>
     </form>`
     const homeContainer = document.createElement('div');
     homeContainer.innerHTML = html
@@ -23,6 +19,7 @@ export const renderHome = () => {
     return homeContainer
 }
 
+//Funcionalidad después de cargada la página
 export function afterRenderHome() {
     getTrendData()
     document.getElementById('btnSearch').addEventListener('click', getSearchData)
