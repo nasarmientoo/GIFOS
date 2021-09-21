@@ -15,7 +15,7 @@ window.loadData = (data) => {
     let cardSection = document.getElementById('search-cards')
     let content = ''
     for (let i = 0; i < data.length; i++) {
-        content += `<img class="search-gifs-images hidden" src="${data[i].images.downsized.url}">`
+        content += `<img class="search-gifs hidden" src="${data[i].images.downsized.url}">`
     }
     cardSection.innerHTML = content
 }
@@ -23,9 +23,9 @@ window.loadData = (data) => {
 //Funcionalidad botón 'ver más'
 window.loadMore = () => {
     let showMoreButton = document.getElementById('show-more')
-    let list = [...document.querySelectorAll('.search-gifs-images.hidden')]
+    let list = [...document.querySelectorAll('.search-gifs.hidden')]
 
-    list.splice(0, 3).forEach(
+    list.splice(0, 12).forEach(
         elem => elem.classList.remove('hidden')
     );
 
@@ -38,7 +38,7 @@ window.loadMore = () => {
 export function getSearchData() {
     let input = document.querySelector('#search').value.trim()
     let apiKey = 'fWThAF0VpzbGsNMM8hag7y8u9OJjig7y';
-    let searchUrl = `https://api.giphy.com/v1/gifs/search?q=${input}&api_key=${apiKey}&limit=20&offset=12`
+    let searchUrl = `https://api.giphy.com/v1/gifs/search?q=${input}&api_key=${apiKey}&offset=12`
 
     fetch(searchUrl)
         .then(response => response.json())

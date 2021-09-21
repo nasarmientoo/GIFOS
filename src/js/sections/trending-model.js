@@ -7,9 +7,9 @@ function appendTrendData() {
                         <p>Mira los últimos GIFO de nuestra comunidad</p>
                     </div>
                     <div class="carousel-container">
+                        <img id="slide-left" src="assets/button-slider-left.svg" type="button" onclick="slide(-1)">
                         <div class="card-container"></div>
-                        <img id="slide-left" src="assets/button-slider-left.svg" type="button" onclick="loadLeft()">
-                        <img id="slide-rigth" src="assets/Button-Slider-right.svg" type="button" onclick="slideRigth()">
+                        <img id="slide-rigth" src="assets/Button-Slider-right.svg" type="button" onclick="slide(1)">
                     </div>
                 </div>
                 `
@@ -21,12 +21,29 @@ window.loadTrendData = (data) => {
     let content = ''
     for (let i = 0; i < data.length; i++) {
         content += `
-                <div class="card">
-                    <img class="images"src="${data[i].images.downsized.url}">
+                <div class="cards">
+                    <img src="${data[i].images.downsized.url}">
                 </div>`
 
     }
     trendSection.innerHTML = content
+}
+
+window.rev = 0;
+window.slide = (n) => {
+    rev = rev + n;
+    carousel(rev);
+}
+
+window.carousel = (review) => {
+    let cards = document.getElementsByClassName("cards");
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].style.display = "none";
+    }
+
+    for (let i = review; i <= review + 2; i++) {
+        cards[i].style.display = "block";
+    }
 }
 
 //Acceder a la data con trending gifs
@@ -39,5 +56,6 @@ export function getTrendData() {
         .then(content => {
             appendTrendData()
             loadTrendData(content.data)
+            carousel(rev)
         })
 }
