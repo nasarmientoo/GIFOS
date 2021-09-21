@@ -1,3 +1,4 @@
+//Sección de trending gifs y funcionalidad al flechas slider
 function appendTrendData() {
     let container = document.querySelector('#trend-section')
     let content = `
@@ -16,6 +17,7 @@ function appendTrendData() {
     container.innerHTML = content
 }
 
+//Agregar toda la data de la API a la sección creada en Append Data
 window.loadTrendData = (data) => {
     let trendSection = document.querySelector('.card-container')
     let content = ''
@@ -29,14 +31,24 @@ window.loadTrendData = (data) => {
     trendSection.innerHTML = content
 }
 
+//Funcionalidad flechas de slider
 window.rev = 0;
 window.slide = (n) => {
     rev = rev + n;
     carousel(rev);
 }
 
+//Función slideshow multi-item
 window.carousel = (review) => {
     let cards = document.getElementsByClassName("cards");
+    if (review >= cards.length - 2) {
+        review = 0
+        rev = 0
+    }
+    if (review < 0) {
+        review = cards.length - 3;
+        rev = cards.length - 3;
+    }
     for (let i = 0; i < cards.length; i++) {
         cards[i].style.display = "none";
     }
