@@ -35,7 +35,7 @@ body {
 /* Header style ---------------------------------------------- */
 
 .header {
-    padding-top: 1.5%;
+    padding-top: 1%;
     border-top: 5px solid #572EE5;
     padding-right: 11%;
     padding-left: 11%;
@@ -52,11 +52,13 @@ body {
     font-size: 13px;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .header div>*,
 .header>img:last-child {
-    margin-left: 50px;
+    margin-left: 60px;
+    cursor: pointer;
 }
 
 .header>img:first-child {

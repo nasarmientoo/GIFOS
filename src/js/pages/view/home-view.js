@@ -4,15 +4,22 @@ import { getSearchData } from "../model/home-model.js";
 //Plantilla HTML página inicial Home
 export const renderHome = () => {
     const html = `
-    <h1>Inspírate, busca, guarda y crea los mejores GIFOS</h1>
-    <img src="assets/images/ilustra_header.svg">
-    <form>
-        <label for="search">Busca GIFOS y más</label>
-        <input id="search" type="search">
-        <button id="btnSearch" type="button">Go</button>
+    <div class="search-section">
+        <div class="search-header">
+            <h1>Inspírate, busca, guarda y crea los mejores <span class="blue-text">GIFOS</span></h1>
+            <img src="assets/images/ilustra_header.svg">
+            <form class="search-input">
+                <input id="search" type="search" placeholder="Busca GIFOS y más">
+                <img type="button" src="assets/images/icon-search.svg" id="btnSearch" >
+            </form>
+        </div>
         <div id="search-container"></div>
+        <div id="default-content">
+            <p>Trending:</p>
+            <p> Reactions, Entertainment, Sports, Stickers, Artist </p>
+        </div>
         <section id="trend-section"></section>
-    </form>`
+    </div>`
     const homeContainer = document.createElement('div');
     homeContainer.innerHTML = html
 

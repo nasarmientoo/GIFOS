@@ -36,6 +36,7 @@ window.loadMore = () => {
 
 //Acceder a la data buscada y renderizarla 
 export function getSearchData() {
+    document.querySelector('#default-content').style.display = "none";
     let input = document.querySelector('#search').value.trim()
     let apiKey = 'fWThAF0VpzbGsNMM8hag7y8u9OJjig7y';
     let searchUrl = `https://api.giphy.com/v1/gifs/search?q=${input}&api_key=${apiKey}&offset=12`
