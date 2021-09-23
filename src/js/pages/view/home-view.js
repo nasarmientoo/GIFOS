@@ -5,7 +5,7 @@ import { getSearchData } from "../model/home-model.js";
 export const renderHome = () => {
     const html = `
     <h1>Inspírate, busca, guarda y crea los mejores GIFOS</h1>
-    <img src="assets/ilustra_header.svg">
+    <img src="assets/images/ilustra_header.svg">
     <form>
         <label for="search">Busca GIFOS y más</label>
         <input id="search" type="search">

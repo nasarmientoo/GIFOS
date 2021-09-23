@@ -1,15 +1,13 @@
 .trending-container {
     background: #f4f5f9;
-    margin: 40px;
-    padding-left: 80px;
+    text-align: center;
+    padding-bottom: 11%;
+    padding-top: 4%;
 }
 
 .carousel-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 790px;
-    position: relative;
 }
 
 .card-container {
@@ -21,13 +19,14 @@
 }
 
 .cards img {
-    padding: 12px;
-    width: 250px;
-    height: 200px;
+    padding: 15px;
+    width: 357px;
+    height: 275px;
     object-fit: cover;
 }
 
 #slide-left,
 #slide-rigth {
+    margin: 8px;
     cursor: pointer;
 }

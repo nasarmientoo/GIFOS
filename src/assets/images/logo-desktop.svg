@@ -4,6 +4,13 @@
     <title>logo-desktop</title>
     <desc>Created with Sketch.</desc>
     <defs>
+        <style>
+            @font-face {
+                font-family: "Open-Sans-n";
+                src: url("/src/assets/fonts/open_sans/OpenSans-bold.woff");
+                font-weight: bolder;
+            }
+        </style>
         <polygon id="path-1" points="0.494619458 0.526112695 58.2715334 0.526112695 58.2715334 24.1695652 0.494619458 24.1695652"></polygon>
     </defs>
     <g id="GIFOS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -16,7 +23,7 @@
                             <use xlink:href="#path-1"></use>
                         </mask>
                         <g id="Clip-3"></g>
-                        <text id="GIFOS" mask="url(#mask-2)" font-family="Roboto-Black, Roboto" font-size="18" font-weight="700" fill="#572EE5">
+                        <text id="GIFOS" mask="url(#mask-2)" font-family="Open-Sans-n" font-size="17px" fill="#572EE5">
                             <tspan x="3" y="21">GIFOS</tspan>
                         </text>
                     </g>

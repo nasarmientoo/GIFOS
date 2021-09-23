@@ -5,24 +5,29 @@
     <title>GIFOS</title>
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/trending.css">
+    <link rel="stylesheet" href="css/shared.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <header>
-        <img src="assets/logo-desktop.svg">
-        <button class="header-option">Modo nocturno</button>
-        <a class="header-option">Favoritos</a>
-        <a class="header-option">Mis gifos</a>
-        <img src="assets/button-crear-gifo.svg" type="button">
+    <header class="header">
+        <img src="assets/images/logo-desktop.svg" type="button">
+        <div>
+            <button>MODO NOCTURNO</button>
+            <a>FAVORITOS</a>
+            <a>MIS GIFOS</a>
+        </div>
+        <img src="assets/images/button-crear-gifo.svg" type="button">
     </header>
     <div id="root"></div>
-    <footer>
-        <p>Compartir en:</p>
-        <img src="assets/icon_facebook.svg">
-        <img src="assets/icon-twitter.svg">
-        <img src="assets/icon_instagram.svg">
-        <p>©️ GIFOS 2020 All Rights Reserved</p>
+    <footer class="footer">
+        <div>Compartir en:</div>
+        <div>
+            <img src="assets/images/icon_facebook.svg">
+            <img src="assets/images/icon-twitter.svg">
+            <img src="assets/images/icon_instagram.svg">
+        </div>
+        <div> &copy; GIFOS 2020 All Rights Reserved</div>
     </footer>
     <script type="module" src="js/main.js"></script>
 </body>

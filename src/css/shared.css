@@ -1,0 +1,87 @@
+/* Open Sans Font ---------------------------------------------- */
+
+@font-face {
+    font-family: "Open-Sans-n";
+    src: url("/src/assets/fonts/open_sans/OpenSans.woff");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Open-Sans-br";
+    src: url("/src/assets/fonts/open_sans/OpenSans-bold.woff");
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: "Open-Sans-b";
+    src: url("/src/assets/fonts/open_sans/OpenSans-semibold.woff");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Open-Sans-l";
+    src: url("/src/assets/fonts/open_sans/OpenSans-light.woff");
+    font-weight: lighter;
+}
+
+body {
+    padding-left: 12%;
+    padding-right: 12%;
+    margin: 0px;
+    font-family: 'Open-Sans-n';
+}
+
+
+/* Header style ---------------------------------------------- */
+
+.header {
+    padding-top: 1.5%;
+    border-top: 5px solid #572EE5;
+    padding-right: 11%;
+    padding-left: 11%;
+    display: flex;
+    font-size: 13px;
+    color: #572EE5;
+    font-family: 'Open-Sans-br';
+    align-items: center;
+}
+
+.header div button {
+    color: #572EE5;
+    font-family: 'Open-Sans-br';
+    font-size: 13px;
+    background-color: transparent;
+    border: none;
+}
+
+.header div>*,
+.header>img:last-child {
+    margin-left: 50px;
+}
+
+.header>img:first-child {
+    margin-right: auto;
+}
+
+
+/* Footer style ---------------------------------------------- */
+
+.footer {
+    padding-right: 11%;
+    padding-left: 11%;
+    padding-top: 3.5%;
+    padding-bottom: 3.5%;
+    border-bottom: 5px solid #572EE5;
+    display: flex;
+    position: relative;
+    font-size: 12px;
+}
+
+.footer>div:nth-child(2) {
+    margin-right: auto;
+    display: flex;
+}
+
+.footer img {
+    margin-left: 20px;
+}

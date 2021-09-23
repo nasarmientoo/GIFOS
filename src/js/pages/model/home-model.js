@@ -5,7 +5,7 @@ function appendData(input) {
                 <div class"searched-container gifs">
                     <h1 class="title">${input}</h1>
                     <div id="search-cards"></div>
-                    <img id="show-more" src="assets/CTA-ver-mas.svg" type="button" onclick="loadMore()">
+                    <img id="show-more" src="assets/images/CTA-ver-mas.svg" type="button" onclick="loadMore()">
                 </div>`
     container.innerHTML = content
 }
