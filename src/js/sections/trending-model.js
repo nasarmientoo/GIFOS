@@ -8,9 +8,9 @@ function appendTrendData() {
                         <p>Mira los últimos GIFO de nuestra comunidad</p>
                     </div>
                     <div class="carousel-container">
-                        <img id="slide-left" src="assets/images/button-slider-left.svg" type="button" onclick="slide(-3)">
+                        <a id="hover-left"><img id="slide-left" class="image_on" src="assets/images/button-slider-left.svg"><img id="slide-left" class="image_off" src="assets/images/button-slider-left-hover.svg" type="button" onclick="slide(-3)"></a>
                         <div class="card-container"></div>
-                        <img id="slide-rigth" src="assets/images/Button-Slider-right.svg" type="button" onclick="slide(3)">
+                        <a id="hover-rigth"><img id="slide-rigth" class="image_on" src="assets/images/Button-Slider-right.svg"><img id="slide-rigth" class="image_off" src="assets/images/Button-Slider-right-hover.svg" type="button" onclick="slide(3)"></a>
                     </div>
                 </div>
                 `

@@ -8,10 +8,10 @@ export const renderHome = () => {
         <div class="search-header">
             <h1>Inspírate, busca, guarda y crea los mejores <span class="blue-text">GIFOS</span></h1>
             <img src="assets/images/ilustra_header.svg">
-            <form>
-                <div class="search-input">
+            <form class="search-input">
+                <div class="search-f">
                     <input id="search" type="search" placeholder="Busca GIFOS y más"  autocomplete="off">
-                    <img id="btnSearch" type="button" src="assets/images/icon-search.svg"></br>
+                    <img id="btnSearch" type="button" src="assets/images/icon-search.svg">
                 </div>
                 <ul id="match-list"></ul>
             </form>
@@ -31,8 +31,18 @@ export const renderHome = () => {
 
 //Funcionalidad después de cargada la página
 export function afterRenderHome() {
-    let input = document.getElementById('search')
+    //Activar función para acceder a las sugerencias
+    document.getElementById('search').addEventListener('input', getAutocompleteData)
+
+    //Activar función para acceder a las búsquedas
+    const btn = document.getElementById('btnSearch')
+    const textBox = document.getElementById('search')
+    btn.addEventListener('click', getSearchData)
+    textBox.addEventListener('keyup', function(e) {
+        if (e.keyCode === 13) getSearchData()
+    })
+
+    //Activar función para acceder a los trendings
     getTrendData()
-    document.getElementById('btnSearch').addEventListener('click', getSearchData)
-    input.addEventListener('input', getAutocompleteData)
+
 }

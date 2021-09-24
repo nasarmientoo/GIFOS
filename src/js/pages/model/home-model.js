@@ -47,6 +47,7 @@ window.loadMore = () => {
 //Acceder a la data buscada y renderizarla 
 export const getSearchData = () => {
     document.querySelector('#default-content').style.display = "none";
+    document.querySelector('#match-list').style.display = "none";
     let input = document.querySelector('#search').value.trim()
     let apiKey = 'fWThAF0VpzbGsNMM8hag7y8u9OJjig7y';
     let searchUrl = `https://api.giphy.com/v1/gifs/search?q=${input}&api_key=${apiKey}&offset=12`
@@ -60,15 +61,14 @@ export const getSearchData = () => {
         })
 }
 
-/* Autocomplete function ---------------------------------- */
+/* Función de autocompletar ---------------------------------- */
 
 //Agregar sugerencias 
 const loadAutocompleteData = (data) => {
     let suggestContainer = document.getElementById('match-list')
     let content = ''
     for (let i = 0; i < data.length; i++) {
-        content += `
-                <img src="">        
+        content += ` 
                 <li class="autocomplete-item" onclick="select('${data[i].name}')">${capitalize(data[i].name)}</li>`
     }
     suggestContainer.innerHTML = content
@@ -77,10 +77,12 @@ const loadAutocompleteData = (data) => {
 window.select = (element) => {
     let input = document.querySelector('#search')
     input.value = element
+    getSearchData()
 }
 
 //Acceder a la data de sugerencias
 export const getAutocompleteData = (data) => {
+    document.querySelector('#match-list').style.display = "block";
     let input = document.querySelector('#search').value.trim()
     let apiKey = 'fWThAF0VpzbGsNMM8hag7y8u9OJjig7y';
     let searchUrl = `https://api.giphy.com/v1/gifs/search/tags?q=${input}&api_key=${apiKey}`
