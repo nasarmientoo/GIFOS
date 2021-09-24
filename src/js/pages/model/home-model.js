@@ -1,12 +1,15 @@
+//Primer carácter en mayúscula
+const capitalize = (text) => {
+    return text.charAt(0).toUpperCase() + text.slice(1)
+}
+
 //Sección de gifs buscados y funcionalidad al botón 'ver más'
-function appendData(input) {
+const appendData = (input) => {
     let container = document.querySelector('#search-container')
     let content = ` 
-                <div class"searched-container gifs">
-                    <h1 class="title">${input}</h1>
-                    <div id="search-cards"></div>
-                    <img id="show-more" src="assets/images/CTA-ver-mas.svg" type="button" onclick="loadMore()">
-                </div>`
+                <h1 class="title">${capitalize(input)}</h1>
+                <div id="search-cards"></div>
+                <img id="show-more" src="assets/images/CTA-ver-mas.svg" type="button" onclick="loadMore()">`
     container.innerHTML = content
 }
 
@@ -14,6 +17,13 @@ function appendData(input) {
 window.loadData = (data) => {
     let cardSection = document.getElementById('search-cards')
     let content = ''
+    if (data.length == 0) {
+        content += `
+            <div class="no-result-search">
+                <img src="assets/images/icon-busqueda-sin-resultado.svg">
+                <p>Intenta con otra búsqueda<p>
+            </div>`
+    }
     for (let i = 0; i < data.length; i++) {
         content += `<img class="search-gifs hidden" src="${data[i].images.downsized.url}">`
     }
@@ -35,7 +45,7 @@ window.loadMore = () => {
 }
 
 //Acceder a la data buscada y renderizarla 
-export function getSearchData() {
+export const getSearchData = () => {
     document.querySelector('#default-content').style.display = "none";
     let input = document.querySelector('#search').value.trim()
     let apiKey = 'fWThAF0VpzbGsNMM8hag7y8u9OJjig7y';
@@ -47,5 +57,37 @@ export function getSearchData() {
             appendData(input)
             loadData(content.data)
             loadMore()
+        })
+}
+
+/* Autocomplete function ---------------------------------- */
+
+//Agregar sugerencias 
+const loadAutocompleteData = (data) => {
+    let suggestContainer = document.getElementById('match-list')
+    let content = ''
+    for (let i = 0; i < data.length; i++) {
+        content += `
+                <img src="">        
+                <li class="autocomplete-item" onclick="select('${data[i].name}')">${capitalize(data[i].name)}</li>`
+    }
+    suggestContainer.innerHTML = content
+}
+
+window.select = (element) => {
+    let input = document.querySelector('#search')
+    input.value = element
+}
+
+//Acceder a la data de sugerencias
+export const getAutocompleteData = (data) => {
+    let input = document.querySelector('#search').value.trim()
+    let apiKey = 'fWThAF0VpzbGsNMM8hag7y8u9OJjig7y';
+    let searchUrl = `https://api.giphy.com/v1/gifs/search/tags?q=${input}&api_key=${apiKey}`
+
+    fetch(searchUrl)
+        .then(response => response.json())
+        .then(content => {
+            loadAutocompleteData(content.data)
         })
 }

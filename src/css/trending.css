@@ -1,8 +1,25 @@
+/* Estilo sección trending gifs -------------------- */
+
 .trending-container {
     background: #f4f5f9;
     text-align: center;
+    margin-top: 2%;
     padding-bottom: 11%;
-    padding-top: 4%;
+}
+
+.trend-header {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.trend-header h2 {
+    font-family: "Open-Sans-br";
+    font-size: 25px;
+}
+
+.trend-header p {
+    font-family: "Open-Sans-b";
+    color: #000000;
 }
 
 .carousel-container {
