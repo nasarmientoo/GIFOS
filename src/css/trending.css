@@ -32,19 +32,55 @@
     display: flex;
 }
 
-.cards {
-    display: none;
+#slide-left,
+#slide-rigth {
+    cursor: pointer;
 }
 
-.cards img {
+.cards {
+    display: none;
     padding: 15px;
+}
+
+.content-area {
+    position: relative;
+}
+
+.image-card {
     width: 357px;
     height: 275px;
     object-fit: cover;
 }
 
-#slide-left,
-#slide-rigth {
-    margin: 8px;
+.custom-overlay {
+    position: absolute;
+    opacity: 0;
+    width: 357px;
+    height: 275px;
+    top: 15px;
+    background-color: rgb(87, 46, 229, 0.7);
     cursor: pointer;
+}
+
+.custom-overlay:hover {
+    opacity: 1;
+}
+
+.custom-overlay-icons {
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+}
+
+.custom-overlay-icons a {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.custom-overlay-text {
+    margin: 10px;
+    position: absolute;
+    text-align: left;
+    bottom: 0;
+    color: #FFFFFF
 }

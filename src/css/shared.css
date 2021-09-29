@@ -89,6 +89,9 @@ body {
     margin-left: 20px;
 }
 
+
+/* Función hover ------------------------------------------- */
+
 .image_off,
 [id^=hover]:hover .image_on {
     display: none

@@ -1,3 +1,5 @@
+import { capitalize } from "../pages/model/home-model.js";
+
 //Sección de trending gifs y funcionalidad al flechas slider
 function appendTrendData() {
     let container = document.querySelector('#trend-section')
@@ -8,9 +10,9 @@ function appendTrendData() {
                         <p>Mira los últimos GIFO de nuestra comunidad</p>
                     </div>
                     <div class="carousel-container">
-                        <a id="hover-left"><img id="slide-left" class="image_on" src="assets/images/button-slider-left.svg"><img id="slide-left" class="image_off" src="assets/images/button-slider-left-hover.svg" type="button" onclick="slide(-3)"></a>
+                        <a id="hover-left"><img class="image_on" src="assets/images/button-slider-left.svg"><img id="slide-left" class="image_off" src="assets/images/button-slider-left-hover.svg" type="button" onclick="slide(-3)"></a>
                         <div class="card-container"></div>
-                        <a id="hover-rigth"><img id="slide-rigth" class="image_on" src="assets/images/Button-Slider-right.svg"><img id="slide-rigth" class="image_off" src="assets/images/Button-Slider-right-hover.svg" type="button" onclick="slide(3)"></a>
+                        <a id="hover-rigth"><img class="image_on" src="assets/images/Button-Slider-right.svg"><img id="slide-rigth" class="image_off" src="assets/images/Button-Slider-right-hover.svg" type="button" onclick="slide(3)"></a>
                     </div>
                 </div>
                 `
@@ -23,8 +25,19 @@ window.loadTrendData = (data) => {
     let content = ''
     for (let i = 0; i < data.length; i++) {
         content += `
-                <div class="cards">
-                    <img src="${data[i].images.downsized.url}">
+                <div class="cards content-area" >
+                    <img class="image-card" src="${data[i].images.downsized.url}">
+                    <div class="custom-overlay">
+                        <div class="custom-overlay-icons">
+                            <a id="hover-fav"><img class="image_on" src="assets/images/icon-fav.svg"><img class="image_off" src="assets/images/icon-fav-hover.svg"></a>
+                            <a id="hover-fav"><img class="image_on" src="assets/images/icon-download.svg"><img class="image_off" src="assets/images/icon-download-hover.svg"></a>
+                            <a id="hover-fav"><img class="image_on" src="assets/images/icon-max-normal.svg"><img class="image_off" src="assets/images/icon-max-hover.svg"></a>
+                        </div>
+                        <div class="custom-overlay-text">
+                            <p>${capitalize(data[i].username)}</p>
+                            <p>${capitalize(data[i].title)}</p>
+                        </div>
+                    </div>
                 </div>`
     }
     trendSection.innerHTML = content
@@ -65,6 +78,7 @@ export function getTrendData() {
     fetch(trendUrl)
         .then(response => response.json())
         .then(content => {
+            console.log(content.data)
             appendTrendData()
             loadTrendData(content.data)
             carousel(rev)

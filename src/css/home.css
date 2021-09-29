@@ -55,7 +55,7 @@
 
 .autocomplete-item {
     cursor: pointer;
-    list-style-image: url("/src/assets/images/icon-search-s.svg");
+    list-style-image: url("/src/assets/images/icon-search-gray.svg");
     color: #9CAFC3;
 }
 
