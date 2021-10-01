@@ -74,33 +74,53 @@
 
 /* Contenedor de gifs de la sección búsqueda -------------------*/
 
+#search-container {
+    text-align: center;
+    justify-content: center;
+}
+
 #search-container h1 {
     font-family: "Open-Sans-br";
     width: 25%;
     border-top: 1px solid #9CAFC3;
-    display: inline-block;
     padding-top: 4%;
     margin-top: 2%;
+    display: inline-block;
+}
+
+#search-cards {
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.hidden {
+    display: none;
 }
 
 .search-gifs {
-    padding: 12px;
     width: 260px;
     height: 200px;
     object-fit: cover;
 }
 
-#search-cards {
-    padding-left: 5%;
-    padding-right: 5%;
+.custom-overlay-search {
+    position: absolute;
+    width: 260px;
+    height: 200px;
+    background-color: rgb(87, 46, 229, 0.7);
+    cursor: pointer;
+    top: 0;
+    opacity: 0;
+}
+
+.custom-overlay-search:hover {
+    opacity: 1;
 }
 
 #show-more {
     cursor: pointer;
-}
-
-.hidden {
-    display: none;
+    padding: 2%;
 }
 
 .no-result-search {

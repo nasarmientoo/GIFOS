@@ -21,7 +21,7 @@ export const renderHome = () => {
             <p>Trending:</p>
             <p> Reactions, Entertainment, Sports, Stickers, Artist </p>
         </div>
-        <section id="trend-section"></section>
+        <section class="trend-section"></section>
     </div>`
     const homeContainer = document.createElement('div');
     homeContainer.innerHTML = html

@@ -9,7 +9,9 @@ const appendData = (input) => {
     let content = ` 
                 <h1 class="title">${capitalize(input)}</h1>
                 <div id="search-cards"></div>
-                <img id="show-more" src="assets/images/CTA-ver-mas.svg" type="button" onclick="loadMore()">`
+                <div>
+                    <img id="show-more" src="assets/images/CTA-ver-mas.svg" type="button" onclick="loadMore()">
+                </div>`
     container.innerHTML = content
 }
 
@@ -25,7 +27,22 @@ window.loadData = (data) => {
             </div>`
     }
     for (let i = 0; i < data.length; i++) {
-        content += `<img class="search-gifs hidden" src="${data[i].images.downsized.url}">`
+        content += `
+            <div class="content-area hidden">
+                <img class="search-gifs" src="${data[i].images.downsized.url}">
+                <div class="custom-overlay-search">
+                    <div class="custom-overlay-icons">
+                        <a id="hover-fav"><img class="image_on" src="assets/images/icon-fav.svg"><img class="image_off" src="assets/images/icon-fav-hover.svg"></a>
+                        <a id="hover-fav"><img class="image_on" src="assets/images/icon-download.svg"><img class="image_off" src="assets/images/icon-download-hover.svg"></a>
+                        <a id="hover-fav"><img class="image_on" src="assets/images/icon-max-normal.svg"><img class="image_off" src="assets/images/icon-max-hover.svg"></a>
+                    </div>
+                    <div class="custom-overlay-text">
+                        <p>${capitalize(data[i].username)}</p>
+                        <p>${capitalize(data[i].title)}</p>
+                    </div>
+                </div>
+            </div>
+    `
     }
     cardSection.innerHTML = content
 }
@@ -33,13 +50,13 @@ window.loadData = (data) => {
 //Funcionalidad botón 'ver más'
 window.loadMore = () => {
     let showMoreButton = document.getElementById('show-more')
-    let list = [...document.querySelectorAll('.search-gifs.hidden')]
+    let list = [...document.querySelectorAll('.hidden')]
 
     list.splice(0, 12).forEach(
         elem => elem.classList.remove('hidden')
     );
 
-    if (list.length == 0) {
+    if (list.length === 0) {
         showMoreButton.classList.add('hidden');
     }
 }
@@ -47,7 +64,6 @@ window.loadMore = () => {
 //Acceder a la data buscada y renderizarla 
 export const getSearchData = () => {
     document.querySelector('#default-content').style.display = "none";
-    document.querySelector('#match-list').style.display = "none";
     let input = document.querySelector('#search').value.trim()
     let apiKey = 'fWThAF0VpzbGsNMM8hag7y8u9OJjig7y';
     let searchUrl = `https://api.giphy.com/v1/gifs/search?q=${input}&api_key=${apiKey}&offset=12`

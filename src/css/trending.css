@@ -84,3 +84,7 @@
     bottom: 0;
     color: #FFFFFF
 }
+
+.custom-overlay-text>p:last-child {
+    font-family: "Open-Sans-br";
+}

@@ -2,7 +2,7 @@ import { capitalize } from "../pages/model/home-model.js";
 
 //Sección de trending gifs y funcionalidad al flechas slider
 function appendTrendData() {
-    let container = document.querySelector('#trend-section')
+    let container = document.querySelector('.trend-section')
     let content = `
                 <div class="trending-container">
                     <div class="trend-header">
@@ -78,7 +78,6 @@ export function getTrendData() {
     fetch(trendUrl)
         .then(response => response.json())
         .then(content => {
-            console.log(content.data)
             appendTrendData()
             loadTrendData(content.data)
             carousel(rev)
